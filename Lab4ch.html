@@ -1,0 +1,35 @@
+<html>
+
+	<head>
+	
+		<title>Lab 4 Challenge </title>
+		
+	</head>
+	
+	<body>
+	
+		<p id="p1">Hi there! This text will change based on your selection!</p>
+	
+		<input type="button" value="customize" onClick = "customize()"/>
+
+		<script>
+			
+			function customize()
+			{
+				var color_bg=prompt("Choose a color for the background")
+				document.body.bgColor = color_bg;
+				
+				var color_text=prompt("Choose a color for the text")
+				document.getElementById(“p1”).style.color = color_text;
+				
+				var font_text=prompt("Choose a font for the text")
+				document.getElementById(“p1”).style.fontFamily = font_text;
+				
+				//don’t forget to add a line of code to change the text…
+			}
+			
+		</script>
+
+	</body>
+	
+</html>

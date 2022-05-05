@@ -1,0 +1,60 @@
+<!--		Programming Challenge
+			Description:	This page will display a countdown to a rocket blastoff.
+			Created by: 	Cesar Barbieri
+			Created on: 	08-20-2016
+-->
+
+<html>
+
+	<head>
+		<title>Blastoff!</title>
+	</head>
+	
+	<body>
+	
+		<div style="width: 500px; margin: auto; margin-top: 100px; border: 1px solid black; padding: 5px; background-color: #E7E7E7;">
+			<p>This page will display a countdown to a rocket blastoff.</p>
+			<input type = "button" value = "Count down to blastoff! - using a while loop" onClick = "whileLoop()"/>
+			<input type = "button" value = "Count down to blastoff! - using a do while loop" onClick = "doWhileLoop()"/>
+			<input type = "button" value = "Count down to blastoff! - using a for loop" onClick = "forLoop()"/>
+		</div>
+		
+		<script>
+		
+			function whileLoop()
+			{
+				num = 10
+				while(num>0)
+				{
+					document.write(num + "<br>")
+					num--
+				}
+				document.write("BLASTOFF!!")
+			}
+			
+			function doWhileLoop()
+			{
+				num = 10
+				do
+				{
+					document.write(num + "<br>")
+					num--
+				}
+				while (num>0);
+				document.write("BLASTOFF!!")
+			}
+			
+			function forLoop()
+			{
+				for(var num=10;num>0;num--)
+				{
+					document.write(num + "<br>")
+				}
+				document.write("BLASTOFF!!")
+			}
+		
+		</script>
+		
+	</body>
+	
+</html>

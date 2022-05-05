@@ -1,0 +1,43 @@
+<html>
+
+	<head>
+		<title>Lab 4c</title>
+	</head>
+	
+	<body>
+
+		<script>
+			
+			var words = []
+			var quit = false
+			function askWord()
+			
+			{
+				var ans = prompt("Enter any word. Type 'quit' to quit.")
+				while (ans!= "quit" && quit!= true)
+				{
+					words.push(ans)
+					askWord()
+				}
+				
+				if (ans == "quit")
+				{
+					quit = true
+					num = 0
+					while (num < words.length)
+					{	
+						document.write(words[num] + "<br>")
+						num++
+					}
+				}
+			}
+		
+			askWord()
+		
+		</script>
+		
+	</body>
+	
+</html>
+
+ 
