@@ -1,0 +1,42 @@
+<html> 
+<head> 
+    <title>Document Object Model - querySelector</title> 
+</head> 
+<body>
+	<h5 id='myh5'>*** Javascript DOM ***</h5>
+	<div id='test'>
+		<p id='p1'>This is my first paragraph</p>
+		<p id='p2'>This is my second paragraph</p>
+	</div>
+	<br />
+	<div id='test2'>
+		<p id='msg'>...................</p>
+	</div>
+	<input type="button" value="querySelector Demo" onclick="querySelectorDemo()"><br />
+	<input type="button" value="getElementById Demo" onclick="getElementByIdDemo()"><br />
+    <script>
+		//What difference do you see between querySelector and getElementById?	
+		function querySelectorDemo()
+		{
+			var myH5 = document.querySelector("#myh5");
+			alert("querySelectorDemo - I'm pointing to h5-> " + myH5);
+			
+			myH5 = document.querySelector("#myh5").textContent;
+			alert("querySelectorDemo - I'm retrieving the value between the h5 tags -> " + myH5);
+			
+			document.querySelector('#msg').textContent = "querySelectorDemo - " + myH5;
+		}
+		
+		function getElementByIdDemo()
+		{
+			var myH5 = document.getElementById("myh5");
+			alert("getElementByIdDemo - I'm pointing to h5-> " + myH5);
+			
+			myH5 = document.getElementById("myh5").innerHTML;
+			alert("getElementByIdDemo - I'm retrieving the value between the h5 tags -> " + myH5);
+			
+			document.getElementById('msg').innerHTML = "getElementByIdDemo - " + myH5;
+		}
+    </script>
+</body> 
+</html>

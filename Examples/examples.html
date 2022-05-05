@@ -1,0 +1,101 @@
+<html>
+<head>
+	<title>Examples</title>		
+</head>
+<body>
+	<input type="text" id="num" value="00000" size="20" maxlength="14"/>
+	<input type="button" id='button1' value="Check"/>
+	<br /><br />
+	<b>Information:</b><br />
+		Number characters allowed: <span id="field_size">&nbsp;</span><br />
+		Password entered:          <span id="pwd">&nbsp;</span><br />
+		Number characters entered: <span id="number_size">&nbsp;</span><br />
+	<br /><br />
+	
+	<form name="myForm" id="form1" action="done.html" method="post">
+		<fieldset>
+			<h2>Pets</h2>
+			<input type="radio" name="r1" value="cat">Cat<br/>
+			<input type="radio" name="r1" value="dog">Dog<br/>
+			<input type="radio" name="r1" value="parrot">Parrot<br/>
+			<input type="submit" value="Submit Form"><br/>
+		</fieldset>
+	</form>
+
+	<form name="myForm2" id="form2">
+	<fieldset>
+		<h3>Pet Food</h3>
+		<input type="checkbox" id="i1" name='allInputBoxes' value="Meow Mix Original Choice Dry Cat Food">Meow Mix Original Choice Dry Cat Food<br />
+		<input type="checkbox" id="i2" name='allInputBoxes' value="Lifes Abundance All Life Stage Dog Food">Lifes Abundance All Life Stage Dog Food<br />
+		<input type="checkbox" id="i3" name='allInputBoxes' value="Garden Macaw Parrot">Garden Macaw Parrot <br />
+		<input type="button" id='button2' value="Save"/>
+	</fieldset>
+	</form>
+	
+	<fieldset>
+		<span id="display">What have you checked?</span>
+	</fieldset>
+		<script>
+		document.querySelector('#button1').addEventListener('click',validationInput);
+		document.querySelector('#form1').addEventListener('submit',validationRadios);
+		document.querySelector('#button2').addEventListener('click',foodSelected);
+		
+		function validationInput()
+		{
+			var numberSize = 0; 
+			var numberUsed = ""; 
+			var numberLength = 0; 
+			
+			//information
+			numberSize = document.getElementById('num').size;
+			document.getElementById('field_size').innerHTML = numberSize;
+			
+			numberUsed = document.getElementById('num').value;
+			document.getElementById('pwd').innerHTML = numberUsed;
+			
+			numberLength = numberUsed.length;
+			document.getElementById('number_size').innerHTML = numberLength;
+			
+			//validation
+			if (numberUsed === "" || numberUsed.length != 5 || isNaN(numberUsed))
+			{
+				document.getElementById('num').style.background = "red";
+			}	
+			else
+			{
+				document.getElementById('num').style.background = "green";
+			}
+		}
+		
+		function validationRadios(event)
+		{
+			var radios = document.getElementsByName("r1");
+			
+			for (var i = 0; i < radios.length; i++)
+			{
+				if (radios[i].checked)
+				{
+					return true; //will take you to done.html
+				}
+			}
+			alert("Please select a pet.");
+			event.preventDefault();
+		}
+		
+		function foodSelected()
+		{	
+			var checkbox = document.getElementsByName('allInputBoxes');
+			var selection = "";
+			
+			for (var i = 0; i < checkbox.length; i++)
+			{
+				if (checkbox[i].checked)
+				{
+					selection = selection + "<br\>" + checkbox[i].value;
+				}
+			}
+			document.getElementById('display').innerHTML = selection;
+		}
+	</script>
+</body>
+</html>
