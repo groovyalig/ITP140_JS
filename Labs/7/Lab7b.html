@@ -1,0 +1,40 @@
+<html>
+
+	<head>
+		<title>Lab7a</title>
+	</head>
+	
+	<body>
+	
+		<script>
+			 
+			 //This is the code from Lab7a//
+			 var numbers = [11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
+			 
+			 document.write("Index Values <br>");
+			 for (var x=0; x < numbers.length; x++)
+			 {
+				document.write (x + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + numbers[x] + "<br>");
+			 }
+			 
+			 
+			 //Here is where we print the numbers located at an index with an odd value//
+			 
+			 document.write("<hr>");
+			 var y = 1
+			 total = 0
+			 while (y<numbers.length)
+			 {
+				document.write (y + "\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0" + numbers[y] + "<br>");
+				total = total + numbers[y]
+				y = y + 2
+			 }
+			 
+			 // now we add em up!//
+			 document.write("<hr>")
+			 document.write("Total:" + total)
+			 
+		</script>		
+	</body>
+	
+</html>

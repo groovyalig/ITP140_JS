@@ -1,0 +1,202 @@
+<html>
+
+	<head>
+		<title>Lab7c</title>
+	</head>
+	
+	<body>
+	
+		<script>
+			
+			//CREATE AN ARRAY, FROZEN
+			
+			var Frozen = ["Elsa", "Anna", "Kristoff", "Olaf", "Hans"]								//declare the array 'Frozen'
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//CREATE AN ARRAY, TANGLED
+			
+			var Tangled = ["Princess Leia", "Flynn Rider", "Maximus", "Gothel"]						//declare the array 'Tangled'
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//DEFINES THE FUNCTION showFrozen() : DISPLAYS CONTENTS (AND SIZE) OF FROZEN ARRAY
+			
+			function showFrozen()
+			{
+				document.write("<font color=\"blue\"><b>Frozen</b></font><br>")							//print header: Frozen
+				
+				for (var x=0; x < Frozen.length; x++)													//repeat for the length of the array
+				{
+					document.write ("Frozen[" + x + "] = " + Frozen[x] + "<br>");						//print the index number and the contents
+				}
+				
+				if (showLength == true)																	//if we want the length to be displayed
+				{
+					document.write("Length of Array: ")													//print Length of Array:
+					document.write(Frozen.length)														//display the size of the array
+					document.write("<br><br>")															// break
+				}
+				
+																										//if we don't want the length displayed
+				{
+					document.write("<br>")																//break
+				}
+			}
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//DEFINES THE FUNCTION showTangled() : DISPLAYS CONTENTS (AND SIZE) OF TANGLED ARRAY
+			
+			function showTangled()
+			{
+				document.write("<font color=\"red\"><b>Tangled</b></font><br>")							//print header: Tangled
+				
+				for (var x=0; x < Tangled.length; x++)													//repeat for the length of the array
+				{
+					document.write ("Tangled[" + x + "] = " + Tangled[x] + "<br>");						//print the index number and the contents
+				}
+				
+				if (showLength == true)																	//if we want the length to be displayed
+				{
+					document.write("Length of Array: ");												//print Length of Array:
+					document.write(Tangled.length);														//display the size of the array
+					document.write("<br><br>")															// break
+				}
+				
+				else																					//if we don't want the length displayed
+				{
+					document.write("<br>")																//break
+				}
+			}
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//DISPLAY THE FROZEN ARRAY: CONTENTS AND SIZE
+			
+			document.write("***a***<br>")																//indicates which activity I'm on
+			
+			showLength = true;																			//lets showFrozen know we want to see the length
+			showFrozen();																				//calls showFrozen to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//DISPLAY THE TANGLED ARRAY: CONTENTS AND SIZE
+			
+			document.write("***b***<br>")																//indicates which activity I'm on
+			
+			showLength = true;																			//lets showTangled know we want to see the length
+			showTangled();																				//calls showTangled() to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//REPLACE THE SECOND ELEMENT IN TANGLED; DISPLAY CONTENTS
+			
+			document.write("***c***<br>")																//indicates which activity I'm on
+			
+			Tangled.splice(1, 1, "Eugene Fitzherbert");													//replace second element
+			
+			showLength = false;																			//lets showTangled know we dont want to see length
+			showTangled();																				//calls showTangled() to display contents
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//REMOVE LAST ELEMENT IN FROZEN; DISPLAY CONTENTS AND SIZE
+			
+			document.write("***d***<br>")																//indicates which activity I'm on
+			
+			fLength = Frozen.length - 1																	//sets a variable for the last index #
+			Frozen.splice(fLength, 1)																	//removes the last element from the array
+				
+			showLength = true;																			//lets showFrozen know we dont want to see the length
+			showFrozen();																				//calls showFrozen to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//ADD ELEMENT TO THE END OF FROZEN ARRAY; DISPLAY CONTENTS AND SIZE
+			
+			document.write("***e***<br>")																//indicates which activity I'm on
+			
+			Frozen.push("Duke of Weselton ");															//adds element to the end of Frozen array
+			
+			showLength = true;																			//lets showFrozen know we dont want to see the length
+			showFrozen();																				//calls showFrozen to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//REMOVE FIRST ELEMENT OF ARRAY TANGLED; DISPLAY CONTENTS AND SIZE
+			
+			document.write("***f***<br>")																//indicates which activity I'm on
+			
+			Tangled.splice(0, 1)																		//removes the first element from Tangled
+			
+			showLength = true;																			//lets showTangled know we dont want to see length
+			showTangled();																				//calls showTangled to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//ADD ELEMENT TO BEGINNING OF TANGLED ARRAY; DISPLAY CONTENTS AND SIZE
+			
+			document.write("***g***<br>")																//indicates which activity I'm on
+			
+			Tangled.unshift("Rapunzel")																	//adds element to beginning of Tangled array
+			
+			showLength = true;																			//lets showTangled know we want to see length
+			showTangled();																				//calls showTangled to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//REVERSE FROZEN ARRAY; DISPLAY CONTENTS
+			
+			document.write("***h***<br>")																//indicates which activity I'm on
+			
+			Frozen.reverse();																			//reverses the Frozen array
+			
+			showLength = false;																			//lets showFrozen know we dont want to see length
+			showFrozen();																				//calls showFrozen to display contents
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//SORT TANGLED ARRAY; DISPLAY CONTENTS
+			
+			document.write("***i***<br>")																//indicates which activity I'm on
+			
+			Tangled.sort()																	 			//sorts the Tangled array alphabetically
+			
+			showLength = false;																			//lets showTangled know we dont want to see length
+			showTangled();																				//calls showTangled to display contents/length
+			
+			//---------------------------------------------------------------------------------------------------------------------------------
+			
+			//CONCATENATE FROZEN AND TANGLED INTO NEW ARRAY, disneyCharacters; DISPLAY CONTENTS AND SIZE
+			
+			document.write("***j***<br>")																//indicates which activity I'm on
+			
+			disneyCharacters = []
+			
+			//ADD FROZEN CHARACTERS
+			for (var x=0; x < Frozen.length; x++)														//repeat for the length of the array
+				{
+					disneyCharacters.push(Frozen[x]);													//add the element to disneyCharacters array
+				}
+			
+			//ADD TANGLED CHARACTERS
+			for (var y=0; y < Tangled.length; y++)														//repeat for the length of the array
+				{
+					disneyCharacters.push(Tangled[y]);													//add the element to disneyCharacters array
+				}
+			
+			//DISPLAY CONTENTS AND SIZE
+			document.write("<font color=\"green\"><b>Disney Characters</b></font><br>")					//print header
+			document.write("Index Values <br>")															//print categories
+			
+			for (var z=0; z < disneyCharacters.length; z++)												//repeat for the length of the array
+				{
+					document.write ("Disney Characters[" + z + "] = " + disneyCharacters[z] + "<br>");	//print the index and contents
+				}
+			
+		</script>
+		
+	</body>
+	
+</html>
