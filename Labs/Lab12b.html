@@ -1,0 +1,82 @@
+<html>
+
+	<head>
+		<title>Lab12b</title>
+	</head>
+	
+	<body>
+	
+		<canvas id=pane width=700 height=600 style="border:1px solid #000000;"></canvas>
+		
+		<script>
+			var c = document.getElementById('pane').getContext('2d');
+		
+			//body of house
+			c.fillStyle = "black";														//sets color to black
+			c.fillRect (175, 225, 300, 225);											//(from left, from top, width, height)
+			
+			//chimney
+			c.fillStyle = "silver";														//sets color to silver
+			c.fillRect (200, 140, 45, 85);												//(from left, from top, width, height)
+			
+			
+			//Left window
+			c.fillStyle = "white";														//sets color to white
+			c.fillRect (200, 300, 60, 60);												//(from left, from top, width, height)
+			
+			//Left Window Pane
+			c.beginPath();																//begins path
+			c.lineWidth = 7																//sets width of line
+				//vertical
+			c.moveTo(230, 300)															//(pen up) sets first point (pen down)
+			c.lineTo(230, 360)															//sets second point
+				//horizontal
+			c.moveTo(200, 330)															//(pen up) sets third point (pen down)
+			c.lineTo(260, 330)															//sets fourth point
+			c.strokeStyle = "silver"													//sets line color
+			c.stroke();																	//draws line
+			
+			//Right window
+			c.fillStyle = "white";														//sets color to white
+			c.fillRect (390, 300, 60, 60);												//(from left, from top, width, height)
+			
+			//Right Window Pane
+			c.beginPath();																//begins path
+			c.lineWidth = 7															//sets width of line
+				//vertical
+			c.moveTo(420, 300)															//(pen up) sets first point (pen down)
+			c.lineTo(420, 360)															//sets second point
+				//horizontal
+			c.moveTo(390, 330)															//(pen up) sets third point (pen down)
+			c.lineTo(450, 330)															//sets fourth point
+			c.strokeStyle = "silver"													//sets line color
+			c.stroke();																	//draws line
+			
+			//door
+			c.fillStyle = "brown";														//sets color to brown
+			c.fillRect (295, 320, 60, 127);												//(from left, from top, width, height)
+			
+			//roof
+			c.beginPath()																//starts line path
+			c.fillStyle = "brown";														//sets fill-color to brown
+			c.lineWidth = "1";															//sets width of line
+			c.strokeStyle = "brown";													//sets line-color to brown
+			c.moveTo(160,225);															//sets the first point (Left)
+			c.lineTo(325, 140);															//sets the second point (Point)
+			c.lineTo(490, 225);															//sets the third point (Right)
+			c.stroke();																	//draws it
+			c.fill();																	//fills it
+			
+			//doorknob
+			c.beginPath()																//begins path
+			c.fillStyle = "gold"														//sets color to gold
+			c.arc(305,395,5,0,2*Math.PI)												//circle(from left, from top, radius, 0, full circle)
+			c.stroke();																	//draws it
+			c.fill();																	//fills it
+			
+		</script>
+		
+	</body>
+	
+</html>
+
