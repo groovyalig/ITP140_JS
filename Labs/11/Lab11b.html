@@ -1,0 +1,58 @@
+<html>
+
+	<head>
+		<title>Lab 11b</title>
+	</head>
+	
+	<body>
+		<table width=60% align="center">
+		<tr>
+			<td>
+				<br />
+				<h2> Enter a password and display the following: </h2>
+				<ul>
+					<li>The password's textfield size</li>
+					<li>The password</li>
+					<li>The password's length</li>
+				</ul>
+				
+				<p>
+				<input type="password" name="user_pwrd" id="password" size="20" maxlength="14"/>
+				<input type="button" id="ok" value="ok" onClick="submitInfo()"/>
+				</p>
+				<p>
+					<b>Password information:</b><br />
+					Number characters allowed: <span id="field_size">&nbsp;</span><br />
+					Password entered:          <span id="pwd">&nbsp;</span><br />	
+					Number characters entered: <span id="word_size">&nbsp;</span><br />				
+				</p>
+			</td>
+		</tr>
+		</table>
+		
+		<script>
+			
+			document.querySelector('#ok').addEventListener('click',submitInfo);
+			
+			function submitInfo()
+			{
+				var numberSize = 0; 
+				var numberUsed = ""; 
+				var numberLength = 0; 
+				
+				//information
+				numberSize = document.getElementById('password').size;
+				document.getElementById('field_size').innerHTML = numberSize;
+				
+				numberUsed = document.getElementById('password').value;
+				document.getElementById('pwd').innerHTML = numberUsed;
+				
+				numberLength = numberUsed.length;
+				document.getElementById('word_size').innerHTML = numberLength;
+			}
+		
+		</script>
+		
+	</body>
+	
+</html>

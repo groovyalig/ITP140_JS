@@ -1,0 +1,82 @@
+<html>
+
+	<head>
+		<title>Lab 11a</title>
+		<style type="text/css">
+			.style2 {
+				color: #4f81bd
+			}
+			.style5 {
+				color: #0000FF;
+				font-weight: bold;
+			}
+			.style6 {
+				color: #FF0000;
+				font-weight: bold;
+			}
+			.style7 {
+				color: #00CC33;
+				font-weight: bold;
+			}
+			.style8 {
+				color: #E6E6FA;
+				font-weight: bold;
+			}
+			.style9 {
+				color: #FF9900;
+				font-weight: bold;
+			}
+		</style>
+	</head>
+
+	<body>
+		<table align = "center" width = "60%">
+			<form name="radio_buttons">
+			<tr>
+				<td>
+					<h2 align="center" class="style2">Colors</h2>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<fieldset>
+					<h2>What color do you like best?</h2>
+					<input type="radio" name="color" id="blue" value="blue">
+					<span class="style5">Blue</span><br />
+					<input type="radio" name="color" id="red" value="red">
+					<span class="style6">Red</span><br />
+					<input type="radio" name="color" id="green" value="green">
+					<span class="style7">Green</span><br />
+					<input type="radio" name="color" id="lavender" value="lavender">
+					<span class="style8">Lavender</span><br />
+					<input type="radio" name="color" id="orange" value="orange">
+					<span class="style9">Orange</span>
+				</fieldset>	
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="ooops! Clear my form please" id="white" value="white">
+				</td>
+			</tr>
+			</form>
+		</table>
+		
+		<script>
+		
+			document.querySelector('#blue').addEventListener('click',radiosFunct);
+			document.querySelector('#red').addEventListener('click',radiosFunct);
+			document.querySelector('#green').addEventListener('click',radiosFunct);
+			document.querySelector('#lavender').addEventListener('click',radiosFunct);
+			document.querySelector('#orange').addEventListener('click',radiosFunct);
+			
+			function radiosFunct(e)
+			{
+				document.body.style.backgroundColor = document.getElementById(e.target.id).value;
+			}
+		
+		</script>
+		
+	</body>
+
+</html>

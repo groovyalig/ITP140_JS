@@ -1,0 +1,126 @@
+<html>
+
+	<head>
+		<title>Lab 11c</title>
+	</head>
+	
+	<body>
+		<form name="menu">
+			<h2><br />Select Your Meal</h2>
+			<div style="width: 80%;">
+				<div style="width: 40%; float: left;">
+					<fieldset>
+						<legend>Your Information</legend>
+						<h3>Enter the following information:</h3>
+						<label>Your name:<br /></label> <input type="text" name="dinername" id="dinername" size = "30" value = ""/>
+						<input type="button" id="nameOk" value = "ok"/>
+						<p>We will call your cell phone when your order is ready.<br /> 
+						<label>Phone:<br /> </label><input type="text" name="phone" id="phone" size="30" value = ""/></label>
+						<input type="button" id="cellOk" value = "ok"/><br />
+					</fieldset>
+				</div>
+				<div style=" width: 30%; float: left;">
+					<fieldset>
+						<legend>Main Course</legend>
+						<h3>Pick your main course:</h3>
+						<input type="radio" name="entree" id="steak" value="Rib-Eye Steak">Rib-Eye Steak<br />
+						<input type="radio" name="entree" id="chicken" value="Fried Chicken">Fried Chicken<br />
+						<input type="radio" name="entree" id="veggie" value="Veggie Platter">Vegetarian Fried Tofu<br />
+						<input type="radio" name="entree" id="fish" value="Broiled Salmon">Broiled Salmon<br /><br />
+					</fieldset>
+				</div>
+				<div style="width: 30%; float: left;">
+					<fieldset>
+						<legend>Side Dishes</legend>
+						<h3>Pick two side dishes</h3>
+						<input type="checkbox" name="sides" id="1" value="French Fries" >French Fries<br />
+						<input type="checkbox" name="sides" id="2" value="Baked Potato">Baked Potato<br />
+						<input type="checkbox" name="sides" id="3" value="Cole Slaw">Cole Slaw<br />
+						<input type="checkbox" name="sides" id="4" value="Garden Salad">Garden Salad<br />
+						<input type="checkbox" name="sides" id="5" value="Mixed Vegetables">Mixed Vegetables<br />
+						<input type="checkbox" name="sides" id="6" value="Macaroni and Cheese">Macaroni and Cheese<br />
+						<input type="checkbox" name="sides" id="7" value="Applesauce">Applesauce<br />
+						<input type ="button" id="okSides" value = "Enter my side dish selections"/>
+					</fieldset>
+				</div>
+			</div>
+			<div style="clear:both;">
+			</div>
+			<div>
+				<input type="reset" value="ooops! I made a mistake. Let me start over."><br />
+			</div>
+			<div>
+				<h3>Your name: <span  id = "cust_name">&nbsp;</span> </h3>
+				<h3>Your contact phone: <span  id = "cell_phone">&nbsp;</span> </h3>
+				<h3>Entree selected: <span  id = "main_dish">&nbsp;</span> </h3>
+				<h3>First side dish selected: <span  id = "side_one">&nbsp;</span> </h3>
+				<h3>Second side dish selected: <span  id = "side_two">&nbsp;</span> </h3>
+			</div>
+		</form>
+
+		<script>
+			
+			//Name Box
+			document.querySelector('#nameOk').addEventListener('click',submitName);
+			function submitName()
+			{
+				var name = ""; 
+				
+				name = document.getElementById('dinername').value;
+				document.getElementById('cust_name').innerHTML = name;
+			}
+		
+			//Cell Box
+			document.querySelector('#cellOk').addEventListener('click',submitPhone);
+			function submitPhone()
+			{
+				var phone = ""; 
+				
+				phone = document.getElementById('phone').value;
+				document.getElementById('cell_phone').innerHTML = phone;
+			}
+			
+			//Main Course
+			document.querySelector('#chicken').addEventListener('click',submitMainCourse);
+			document.querySelector('#steak').addEventListener('click',submitMainCourse);
+			document.querySelector('#veggie').addEventListener('click',submitMainCourse);
+			document.querySelector('#fish').addEventListener('click',submitMainCourse);
+			
+			function submitMainCourse(e)
+			{
+				document.getElementById('main_dish').innerHTML = e.target.value;
+			}
+			
+			//Side Dishes
+			document.querySelector('#okSides').addEventListener('click',submitSides);
+			function submitSides()
+			{	
+				var checkbox = document.getElementsByName('sides');
+				var selection = "";
+				flag = false
+				
+				for (var i = 0; i < checkbox.length; i++)
+				{
+					if (checkbox[i].checked && flag == false)
+					{
+						selection1 = checkbox[i].value
+						flag = true
+						continue
+					}
+					
+					if (checkbox[i].checked && flag == true)
+					{
+						selection2 = checkbox[i].value
+						break
+					}
+				}
+				
+				document.getElementById('side_one').innerHTML = selection1;
+				document.getElementById('side_two').innerHTML = selection2;
+			}
+			
+		</script>
+		
+	</body>
+	
+</html>
