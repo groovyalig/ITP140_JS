@@ -1,0 +1,57 @@
+<html>
+
+	<head>
+	
+		<title>Create UserName and email for Website</title>
+		
+	</head>
+	
+	<body>
+		
+		<div style="width: 500px; margin: auto; margin-top: 10px; border: 1px solid black; padding: 5px; background-color: #E7E7E7;">
+			<p>This page will create a username and email for a website.
+			<br /><br />
+			The username will be created using the first initial of the user's first name appended to first four characters of the last name.
+			<br /><br />
+			The email will be created using the first initial of the user's first name appended to the last name, '@', school name and the domain '.edu'
+			<br /><br />
+			For example:</p>
+			<ul>
+				<li>First name = <span id="fname">Cesar</span></li>
+				<li>Last name = <span id="lname">Barbieri</span></li>
+				<li>School name = <span id="school">ODU</span></li>
+			</ul>
+			<p>Username would be: 
+			<span id='username' style="font-weight: bold;">Cbarb</span></p>
+			<p>Email would be: 
+			<span id='email' style="font-weight: bold;">cbarbieri@odu.edu</span></p>
+			<br />
+			<input type="button" value="Create User Name and Email" onClick = "newUser()"/>
+		</div>
+		
+		<script>	
+			
+			function newUser()
+			{
+				var firstName = prompt("What is your first name?")
+				document.getElementById("fname").innerHTML = firstName
+				
+				var lastName = prompt("What is your last name?")
+				document.getElementById("lname").innerHTML = lastName
+				
+				var schoolName = prompt("What is your school name?")
+				document.getElementById("school").innerHTML = schoolName
+				
+				var userName = firstName.substr(0,1) + lastName.substr(0,4).toLowerCase()
+				document.getElementById("username").innerHTML = userName
+				
+				var email = firstName.substr(0,1) + lastName + "@" + schoolName + ".edu"
+				document.getElementById("email").innerHTML = email.toLowerCase()
+			}
+		
+		</script>
+		
+	</body>
+
+</html>
+

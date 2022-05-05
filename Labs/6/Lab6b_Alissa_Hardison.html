@@ -1,0 +1,34 @@
+<html>
+
+	<head>
+		<title>Lab 6b</title>
+	</head>
+	
+	<body>
+	
+		<p>Full name: <span id="fn">empty</span></p>
+		<p>Full name length: <span id="len">empty</span></p>
+		<p>Full name backwards: <span id="back">empty</span></p>
+
+		<script>
+			
+			var fullName = prompt("What is your full name?")
+			document.getElementById("fn").innerHTML = fullName.toUpperCase()
+			
+			document.getElementById("len").innerHTML = document.getElementById("fn").innerHTML.length;
+			
+			x = fullName.length-1
+			fullName_backwards = ""
+			for (var letter=0 ; letter < fullName.length ; letter++)
+			{
+				fullName_backwards = fullName_backwards + (fullName.substr(x,1))
+				x--
+			}
+			
+			document.getElementById("back").innerHTML = fullName_backwards
+			
+		</script>
+		
+	</body>
+	
+</html>
