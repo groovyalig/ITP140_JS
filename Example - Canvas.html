@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Example</title>
+    </head>
+    <body> 
+    <canvas id=pane width=700 height=600 style="border:1px solid #000000;"></canvas> 
+    <script> 
+        var c = document.getElementById('pane').getContext('2d'); 
+
+		//ocean
+		c.fillStyle = "blue";
+		c.fillRect(0, 350, 700, 250);
+		
+		
+		//ocean v2
+		//var grd=c.createLinearGradient(0, 350, 700, 600);
+		//grd.addColorStop(0,"#0033CC");
+		//grd.addColorStop(1,"green");
+		//c.fillStyle=grd;
+		//c.fillRect(0, 350, 700, 600);
+		
+				
+		//sky
+		c.fillStyle = "skyblue";
+		c.fillRect(0, 0, 700, 350);	
+		
+		
+		//sky v2
+		//var grd=c.createLinearGradient(0, 0, 700, 350);
+		//grd.addColorStop(0,"skyblue");
+		//grd.addColorStop(1,"white");
+		//c.fillStyle=grd;
+		//c.fillRect(0, 0, 700, 350);
+		
+		
+		//Sun
+		c.beginPath();
+		c.fillStyle = "yellow";
+		c.arc(600,100,50,0,2*Math.PI);
+		c.stroke();
+		c.fill();
+		
+		//base
+		c.beginPath();
+		c.moveTo(100, 300);
+		c.lineTo(500, 300);
+		c.lineTo(450, 400);
+		c.lineTo(150, 400);
+		c.lineTo(100, 300);
+		c.fillStyle = "brown";
+		c.lineWidth="5";
+		c.strokeStyle="black"; // Black path
+		c.stroke(); // Draw it
+		c.fill();
+		
+		//pole
+		c.fillStyle = "orange";
+		c.fillRect(300, 100, 10, 200);
+		
+		//flag
+		c.beginPath();
+		c.fillStyle = "black";
+		c.lineWidth="5";
+		c.strokeStyle="white"; // White path
+		c.moveTo(310, 100);		
+		c.lineTo(400, 150);
+		c.lineTo(310, 200);
+		c.stroke(); // Draw it
+		c.fill();
+		
+		//text
+		c.font="italic 20px Arial";
+		c.fillText("JavaScript",340,350);
+		
+    </script>
+    </body>
+</html> 
