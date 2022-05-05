@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Lab6a</title>
+	</head>
+	<body>
+		<h1 id="p1">You can do anything, but not everything. —David Allen</h1>
+		
+		<h2>Using the slice Method</h2>
+		<p id="p1a">slice</p>
+		
+		<h2>Using the substr Method</h2>
+		<p id="p2a">substr</p>
+		
+		<h2>Using the split Method</h2>
+		<p id="p3a">split</p>
+		
+		<h2>Using the indexOf Method</h2>
+		<p id="p4a">indexOf</p>
+		
+		<script>	
+			
+			// Slice Method // 
+			
+			var quote = document.getElementById("p1").innerHTML;			
+			document.getElementById("p1a").innerHTML = quote.slice(11,19);	
+			
+			// Substr Method //
+			
+			var quote = document.getElementById("p1").innerHTML;			
+			document.getElementById("p2a").innerHTML = quote.substr(11,8);
+			
+			// Split Method //
+			
+			var quote = document.getElementById("p1").innerHTML;		
+            var splitWords = quote.split(" "); 
+			var word = document.getElementById("p3a").innerHTML = splitWords[3];
+			
+			document.getElementById("p3a").innerHTML = word.slice(0,8)
+			
+			// IndexOf Method //
+			
+			var quote = document.getElementById("p1").innerHTML;
+			var word = document.getElementById("p4a").innerHTML = quote.indexOf("anything,");
+			
+		</script>		
+	</body>
+</html>
+
+ 
