@@ -1,0 +1,194 @@
+<html>
+<head>
+	<title>Lab 8 - Tic Tac Toe</title>
+	<link rel="stylesheet" type="text/css" href="css\tictac.css" />
+</head>
+<body>
+	<h1>Tic Tac Toe</h1>
+    <table>
+        <tr>
+            <td onclick="ticTacToe('00')" id="00">&nbsp;</td>
+            <td onclick="ticTacToe('01')" id="01">&nbsp;</td>
+            <td onclick="ticTacToe('02')" id="02">&nbsp;</td>
+        </tr>
+        <tr>
+            <td onclick="ticTacToe('10')" id="10">&nbsp;</td>
+            <td onclick="ticTacToe('11')" id="11">&nbsp;</td>
+            <td onclick="ticTacToe('12')" id="12">&nbsp;</td>
+        </tr>
+        <tr>
+            <td onclick="ticTacToe('20')" id="20">&nbsp;</td>
+            <td onclick="ticTacToe('21')" id="21">&nbsp;</td>
+            <td onclick="ticTacToe('22')" id="22">&nbsp;</td>
+        </tr>
+    </table>
+    <br>
+    <p id="msg">&nbsp;</p>
+    <center><input type="button" id="btnReset" value="reset" onClick="reset()"></center>
+    <script>
+    	var row = 3;
+		var col = 3;
+		var turn = 0;
+		var x_o = "";
+		var color = "";
+		var winner = "";
+		var horwin = "";
+		var verwin = "";
+		var diawin = "";
+		
+		function ticTacToe(id)																		//dictates turn (letter/color)
+		{
+			if (turn % 2 == 0)																		//if it is an even number
+			{
+				x_o = "X";																			//it's x's turn
+				color = "#3399FF";																	//set color to blue
+			}
+			else																					//if it is not an even number
+			{
+				x_o = "O";																			//it's o's turn
+				color = "#339966";																	//set color to green
+			}
+	
+			if (document.getElementById(id).innerHTML === "&nbsp;")									//if the space you clicked is available
+			{
+				document.getElementById(id).style.backgroundColor = color;							//change background color
+				document.getElementById(id).innerHTML = (x_o);										//change text
+				turn++;																				//switch players
+				checkWinner();																		//calls function checkWinner()
+			}
+			else																					//if the space is not available, it notifies you
+			{
+				if (document.getElementById("msg").innerHTML !== "The X wins!!!" && document.getElementById("msg").innerHTML !== "The O wins!!!")
+				{
+					document.getElementById("msg").innerHTML = ("You cannot change a previous move!");
+				}
+			}
+			
+		}
+		
+		function reset()																			//resets the table
+		{
+			turn = 0;																				//resets the turn
+			x_o = "";																				//resets the letter
+			color = "#FFFFFF";																		//sets the color to white
+			document.getElementById("msg").innerHTML = ("&nbsp;");									//clears the message
+			winner = ""
+			
+			for (x=0; x<3; x++)																		//for each row
+			{
+				for (y=0; y<3; y++)																	//for each column
+				{
+					document.getElementById(x.toString() + y.toString()).style.backgroundColor = color;
+					document.getElementById(x.toString() + y.toString()).innerHTML = ("&nbsp;");
+				}
+			}           
+		}
+		
+		function checkWinner()
+		{
+            row1 = document.getElementById("00").innerHTML + document.getElementById("01").innerHTML + document.getElementById("02").innerHTML
+			row2 = document.getElementById("10").innerHTML + document.getElementById("11").innerHTML + document.getElementById("12").innerHTML
+			row3 = document.getElementById("20").innerHTML + document.getElementById("21").innerHTML + document.getElementById("22").innerHTML
+			col1 = document.getElementById("00").innerHTML + document.getElementById("10").innerHTML + document.getElementById("20").innerHTML
+			col2 = document.getElementById("01").innerHTML + document.getElementById("11").innerHTML + document.getElementById("21").innerHTML
+			col3 = document.getElementById("02").innerHTML + document.getElementById("12").innerHTML + document.getElementById("22").innerHTML
+			dia1 = document.getElementById("00").innerHTML + document.getElementById("11").innerHTML + document.getElementById("22").innerHTML
+			dia2 = document.getElementById("02").innerHTML + document.getElementById("11").innerHTML + document.getElementById("20").innerHTML
+
+            if (checkHorizontal() || checkVertical() || checkDiagonal())
+			{
+				if (winner == "x")																	//if x won
+				{
+					document.getElementById("msg").innerHTML = "The X wins!!!";						//notifies X won
+				}
+				
+				if (winner == "0")																	//if O won
+				{
+					document.getElementById("msg").innerHTML = "The O wins!!!";						//notifies O won
+				}
+			}
+			else																					//if nobody won
+			{
+				noWinner();																			//calls function noWinner()
+			}
+		}
+		
+		function checkHorizontal()																	//checks row1, row2, and row3 for "xxx" or "ooo"
+		{
+			if (row1 == "xxx" || row2 == "xxx" || row3 == "xxx")									//check x
+				{
+					winner = "x";																	//sets x as winner
+					return true ;																	//return true
+				}
+				
+			else if (row1 == "ooo" || row2 == "ooo" || row3 == "ooo")								//check o
+				{
+					winner = "o";																	//sets o as winner
+					return true;																	//return true
+				}
+				
+			else																					//if nobody won
+				{
+					horWin = "none"																	//nobody won horizontally
+					return false;																	//return false
+				}	
+		}
+
+		function checkVertical()																	//checks col1, col2, col3 for "xxx" or "ooo"
+		{
+            if (col1 == "xxx" || col2 == "xxx" || col3 == "xxx")									//check x
+				{
+					winner = "x";																	//sets winner to x
+					return true;																	//if winner return true
+				}
+				
+			if (col1 == "ooo" || col2 == "ooo" || col3 == "ooo")									//check o
+				{
+					winner = "o";																	//sets winner to o
+					return true;																	//if winner return true
+				}
+				
+			else																					//if neither "xxx" nor "ooo" is present
+				{
+					verWin = "none"																	//nobody won vertically
+					return false;																	//return false
+				}
+		}
+		
+		function checkDiagonal()																	//checks dia1, dia2 for "xxx" or "ooo"
+		{
+            if (dia1 == "xxx" || dia2 == "xxx")														//check x
+				{
+					winner = "x";																	//set winner to x
+					return true;																	//if winner return true
+				}
+				
+			if (dia1 == "ooo" || dia2 == "ooo")														//check o
+				{
+					winner = "o";																	//set winner to o
+					return true;																	//if winner return true
+				}
+				
+			else																					//if neither "xxx" nor "ooo" is present
+				{
+					diaWin = "none"																	//nobody won diagonally
+					return false;																	//return false
+				}
+		}	
+		
+		function noWinner()																			//if nobody won
+		{
+			if (horWin == "none" && verWin == "none" && diaWin == "none")							//if no row, column, or diagonal
+			{
+				winner = "none"																		//sets winner to none
+				if (winner == "none")																//if winner is none
+				{
+					document.getElementById("msg").innerHTML = "It's a tie !!! Nobody Wins );";		//notify that nobody won
+				}
+			}
+			
+            
+		}
+    </script>
+</body>
+</html>
