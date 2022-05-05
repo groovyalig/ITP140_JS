@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<title>Lab10b</title>
+	</head>
+	<body>
+		<br />
+		<h3>Fun With the Form</h3>
+		<p>Enter your information in the boxes. After you are satisfied with each entry, press the OK 
+		button to see the information displayed below. Use the TAB key to move from box to box and don't
+		be surprised by where the TABs take you.</p>
+		
+		<form id="myForm">
+			<div style="width: 33%; float: left;">
+				<fieldset>
+					<label>First name:</label><br />
+					<input type="text" name="firstname" id="firstname" size = "30" value = "" tabindex = "1"/>
+					<input type ="button" value = "ok" id="button1"/></button><br />
+					<br />
+				</fieldset>
+			</div>
+			
+			<div style="width: 33%; float: left;">
+				<fieldset>
+					<label>Dream car:</label><br />
+					<input type="text" name="car" id="car" size = "30" value = ""  tabindex = "2"/>
+					<input type ="button" value = "ok" id="button2"/> </button><br /><br />
+				</fieldset>
+			</div>
+			
+			<div style="width: 33%; float: left;">
+				<fieldset>
+					<label>Dream Vacation:</label><br />
+					<input type="text" name="vacation" id="vacation" size = "30" value = "" tabindex = "3"/>
+					<input type ="button" value = "ok" id="button3"/></button><br /><br />
+				</fieldset>
+			</div>
+			
+			<div style="width: 33%; float: left;">
+				<fieldset>
+					<label>Nickname:</label><br />
+					<input type="text" name="nickname" id="nickname" size = "30" value = "" tabindex = "4"/>
+					<input type ="button" value = "ok" id="button4"/></button><br /><br />
+				</fieldset>
+			</div>
+			
+			<div style="width: 33%; float: left;">
+				<fieldset>
+					<label>Favorite meal:</label><br />
+					<input type="text" name="meal" id="meal" size = "30" value = "" tabindex = "5"/>
+					<input type ="button" value = "ok" id="button5"/></button><br /><br />
+				</fieldset>
+			</div>
+			
+			<div style="width: 33%; float: left;">
+				<fieldset>
+					<label>Last name:</label><br />
+					<input type="text" name="lastname" id="lastname" size = "30" value = "" tabindex = "6"/>
+					<input type ="button" value = "ok" id="button6"/></button><br /><br />
+				</fieldset>
+			</div>
+			
+			<div>
+				<h3>Your information:</h3>
+				<p>First name: <span id = "first_name">&nbsp;</span><br /></p>
+				<p>Last name: <span id = "last_name">&nbsp;</span><br /></p>
+				<p>Nickname: <span id = "nick_name">&nbsp;</span><br /></p>
+				<p>Dream car: <span id = "dream_car">&nbsp;</span><br /></p>
+				<p>Favorite meal: <span id = "favorite_meal">&nbsp;</span><br /></p>
+				<p>Vacation desired: <span id = "vacation_spot">&nbsp;</span><br /></p>
+			</div>
+		</form>
+		
+		<script src="myfile10b.js"></script>
+		
+	</body>
+</html>

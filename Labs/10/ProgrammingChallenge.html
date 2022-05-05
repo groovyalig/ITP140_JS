@@ -1,0 +1,101 @@
+<html>
+
+	<head>
+		<title>Programming Challenge 10</title>
+	</head>
+	
+	<body>
+	
+		<div style="width: 700px; margin: auto; margin-top: 100px; border: 1px solid black; padding: 5px; background-color: #E7E7E7;">
+		
+			<p id="text">Power is of two kinds. One is obtained by the fear of punishment and <span id="more"></span> </p>
+			<br>
+			<p><b>Mahatma Gandhi</b></p>
+			<br>
+			<button onclick="myFunction()" id="myBtn">Read more</button>
+			<br/><hr/>
+			<input type='button' value='Change Background Color' onClick='changeBg()'>
+			&nbsp;&nbsp;&nbsp;
+			Hex Value:<span id="color"></span><br />
+			<input type='button' value='Stop Changing Background Color' onClick='stopBG()'> <br/>			
+		</div>
+		
+		<script>
+
+			//OKAY SO NONE OF THIS WORKS THATS COOL *upside down smily face emoji*
+
+			
+			//alright so I tried using a while loop for changeBg() but it froze
+			//I also couldn't figure out how to get the actual text of 'more...' to change to 'less' or do anything at all when clicked
+			
+			//I blame myself for waiting until the day this was due, 3 hours before I have to go to work, to start it, but...
+			//I blame the internet for being confusing and not really helping me with this one other than the way to format using the RGB values
+
+
+
+
+			var showMore = false;																								//identifies that all text isnt showing
+			
+			function showMorePlease(){
+				if (showMore = false){
+					document.getElementById("more").innerHTML = "...Show More"
+				}
+				
+				if (showMore =true){
+					document.getElementById("more").innerHTML = "the other by acts of love. Power based on love is a thousand times more effective and permanent then the one derived from fear of punishment."
+				}
+			}
+			
+			
+			
+			
+			var changeBG = false;																								//identifies that you don't want the bg changing
+			
+			function changeBg()																									//when u click change BG button
+			{
+				changeBG = true;																								//set changeBG var to true
+				
+				if (changeBG = true);																							//if you click the changeBG link and make the var true
+				{
+					var r = Math.floor((Math.random() * 255) + 1);																//random R value
+					var g = Math.floor((Math.random() * 255) + 1);																//random G value
+					var b = Math.floor((Math.random() * 255) + 1);																//random B value
+					
+					document.body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';									//gives you a color using RGB values
+				}
+			}
+			
+			function stopBG()																									//when u click stopBG button
+			{
+				changeBG = false																								//changeBG var is false	
+				document.body.style.backgroundColor = 'white';																	//background is white
+			}
+			
+			function showMoreOrLess()																							//function that corresponds to 'link' id 
+			{
+				var dots = document.getElementById("dots");
+				var moreText = document.getElementById("more");
+				var btnText = document.getElementById("myBtn");
+
+				if (dots.style.display === "none")
+				{
+					dots.style.display = "inline";
+					btnText.innerHTML = "Read more"; 
+					moreText.style.display = "none";
+				}
+				
+				else 
+				{
+					dots.style.display = "none";
+					btnText.innerHTML = "Read less"; 
+					moreText.style.display = "inline";
+				}
+			}
+			
+		</script>
+		
+	</body>
+	
+</html>
+
+ 

@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+		<title>Lab 10c</title>
+	</head>
+	
+	<body>
+	
+		<div id="container"></div>
+		
+		<script>
+		
+			var page = document.querySelector("#container");															//sets container to variable
+			document.addEventListener("keypress", displayKeyPress);														//adds key-press element to page
+			
+			var asciiCode = ["32"]																						//blank array for ASCII codes
+			var letters = [" ", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+			
+			for (var x = 97; x < 123; x++)																				//for numbers 97-102
+			{
+				asciiCode.push(x)																						//adds numbers 97-102 to asciiCode
+			}
+			
+			function displayKeyPress(e)																					//defines function for when key is pressed
+			{
+				for (var x=0; x<asciiCode.length; x++)																	//for the length of the asciiCode array
+				{	
+					if (e.charCode == asciiCode[x])																		//if the character code equals that index in asciiCode
+					{	
+						if (e.charCode != 32)																			//if it's not a space
+						{
+							var newElement = document.createElement("img");												//creates new element
+							
+							newElement.setAttribute("src", "images/new/" + letters[x].toUpperCase() + ".jpg");			//assigns image
+							document.querySelector("#container").appendChild(newElement);								//adds the element
+						}
+						
+						else if (e.charCode == 32)																		//if it is a space
+						{
+							var newElement = document.createElement("img");												//creates new element
+							
+							newElement.setAttribute("src", "images/new/space.jpg");										//assigns image
+							document.querySelector("#container").appendChild(newElement);								//adds the element
+						}
+					}
+				}
+			}		
+		
+		</script>
+		
+	</body>
+	
+</html>
+
+ 
