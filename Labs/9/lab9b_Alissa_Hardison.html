@@ -1,0 +1,51 @@
+<html>
+
+	<head>
+		<title>Lab 9b</title>
+	</head>
+	
+	<body>
+	
+		<input type="button" value="Append Element" onclick="appendElement('#elements')">
+		<input type="button" value="Remove from Bottom" onclick="removeChildFromBottom('#elements')"><br />
+		<p>Let's see if you can display buttons...</p>
+		<div id="elements"></div>
+		
+		<script>
+			
+			var counter = 0																											//sets counter for element id to zero
+			
+			function appendElement(id)																								//adds an element to the parent
+			{
+				var newElement = document.createElement("Button");																	//creates a button				
+				newElement.textContent = "This is my button number... " + counter;													//assigns the button some text	
+				newElement.setAttribute("id", "myId" + counter);																	//assigns the button's id using the counter
+				document.querySelector(id).appendChild(newElement);																	//adds the new element to the parent
+				
+				var breakLine = document.createElement("br");																		//creates a variable that is a break element
+				document.querySelector(id).appendChild(breakLine);																	//adds break to parent 
+				
+				counter++																											//increase counter
+			}
+			
+			function removeChildFromBottom(id)																						//removes an element from the parent
+			{
+				var parent = document.querySelector(id);																			
+				var firstChild = parent.firstChild
+				
+				if (firstChild)
+				{
+					var child = parent.lastChild
+					parent.removeChild(child);
+					
+					var child = parent.lastChild
+					parent.removeChild(child);
+					counter--
+				}
+			}
+			
+		</script>
+		
+	</body>
+	
+</html>

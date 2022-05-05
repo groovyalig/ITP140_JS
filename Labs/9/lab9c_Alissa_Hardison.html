@@ -1,0 +1,55 @@
+<html>
+
+	<head>
+		<title>Lab 9c</title>
+	</head>
+	
+	<body>
+	
+		<div id="container">
+			<h3>My Favorite Colors!</h3>
+			<p id="demo">Click the button to insert a color into the list</p>
+			<ul id="colors">
+				<li id="Red">Red</li>
+				<li id="Blue">Blue</li>
+			</ul>
+		</div>
+
+		<button onclick="addChildToTop()">Adding Node</button>
+		<button onclick="removeChildFromTop()">Removing Node</button>
+		
+		<script>
+		
+			function addChildToTop()																				//adds the color to the top of the list
+			{
+				var color = prompt("Name a color! It will be case sensitive.", "Purple")							//asks user to input a color in a pop-up box
+				
+				if (color != " " && color != "")																	//if the user does not enter a space or submit nothing
+				{
+					var parent = document.querySelector("#colors");													//sets the list of colors (ul id="colors") to a variable
+					var node = document.createElement("li");														//creates a new list item
+					
+					node.textContent = color																		//gives node the value of the user's input (color)
+					node.setAttribute("id", color)																	//assigns an id to the element, the color the user input
+					parent.insertBefore(node, parent.firstChild);													//adds node to top of parent list
+				}
+			}
+			
+			function removeChildFromTop()																			//removes the first instance of the color from the top of the list
+			{
+				var color = prompt("Name a color! It will be case sensitive.", "Purple")							//asks user to input a color in a pop-up box
+				
+				if (color != " " && color != "")																	//if the user does not enter a space or submit nothing
+				{
+					var parent = document.querySelector("#colors");													//sets the list of colors (ul id="colors") to a variable
+					var remove = document.querySelector("#" + color);												//finds the first instance of that color and assigns it to a variable, 'remove'
+					
+					parent.removeChild(remove)																		//removes the variable
+				}
+			}
+		
+		</script>
+		
+	</body>
+	
+</html>
