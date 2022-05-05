@@ -1,0 +1,66 @@
+<html>
+
+	<head>
+		<title>Lab 10a</title>
+	</head>
+	
+	<body>
+	
+		<div style="width: 500px; margin: auto; margin-top: 100px; border: 1px solid black; padding: 5px; background-color: #E7E7E7;">
+			<h2> Some Events: <span id="eventId" style="color:blue;font-weight:bold">None</span></h2>
+			<hr />
+			<img id="face" src="images/default.jpg" />
+			<hr />
+		</div>
+		
+		<script>
+
+			var image = document.getElementById("face")														//sets the image to a variable
+			image.addEventListener("mouseover", mouseOver)													//establishes the mouseOver event and relates it to the function
+			image.addEventListener("mouseout", mouseOut)													//establishes the mouseOut event and relates it to the function
+			image.addEventListener("mousedown", mouseDown)													//establishes the mouseDown event and relates it to the function
+			image.addEventListener("mouseup", mouseUp)														//establishes the mouseUp event and relates it to the function
+			image.addEventListener("dblclick", dblClick)													//establishes the dblClick event and relates it to the function
+			image.addEventListener("contextmenu", contextMenu)												//establishes the contextMenu (right click) event and relates it to the function
+			
+			function mouseOver()																			//when the mouse is over the text
+			{
+				document.getElementById("eventId").innerHTML = "Mouse Over"									//change the text to "Mouse Over"
+				document.getElementById("face").src = "images/confused_face.jpg"							//change the image to confused face
+			}
+			
+			function mouseOut()																				//when the mouse moves out of the text space
+			{
+				document.getElementById("eventId").innerHTML = "Mouse Out"									//change the text to "Mouse Out"
+				document.getElementById("face").src = "images/default.jpg"									//change the image to default
+			}
+			
+			function mouseDown()																			//when the mouse is pressed down
+			{
+				document.getElementById("eventId").innerHTML = "Mouse Down"									//change the text to "Mouse Down"
+				document.getElementById("face").src = "images/happy_face.jpg"								//change the image to happy face
+			}
+			
+			function mouseUp()																				//when mouse button is released
+			{
+				document.getElementById("eventId").innerHTML = "Mouse Up"									//change the text to "Mouse Up"
+				document.getElementById("face").src = "images/sad_face.jpg"									//change the image to sad face
+			}
+			
+			function dblClick()																				//when mouse is double clicked
+			{
+				document.getElementById("eventId").innerHTML = "Double Click"								//change the text to "Double Click"
+				document.getElementById("face").src = "images/serious_face.jpg"								//change the image to serious face
+			}
+			
+			function contextMenu()																			//when mouse is right clicked
+			{
+				document.getElementById("eventId").innerHTML = "Right Click"								//change the text to "Right Click"
+				document.getElementById("face").src = "images/wink_face.jpg"								//change the image to wink face
+			}
+		
+		</script>
+		
+	</body>
+	
+</html>
